@@ -26,13 +26,14 @@ public class PlayerController : MonoBehaviour
     private bool isClimbing = false;
     private float originalGravity;
 
-
+    Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 3f;
         rb.drag = 0f;
         originalGravity = rb.gravityScale;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
         }
         Jump();
         LadderCheck();
+
+        
     }
 
     void Move()
@@ -54,16 +57,18 @@ public class PlayerController : MonoBehaviour
 
         if (inputX != 0)
         {
-            transform.localScale = new Vector3(inputX > 0 ? 1 : -1, 1, 1);
+            transform.localScale = new Vector3(inputX > 0 ? -1 : 1, 1, 1);
         }
+        animator.SetBool("IsWalking", inputX != 0);
     }
 
     void Jump()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
-        if (isGrounded && Input.GetKey(KeyCode.LeftAlt) && isJump && isGrounded)
+        if (isGrounded && Input.GetKey(KeyCode.LeftAlt) && isJump)
         {
+            
             if (Input.GetAxisRaw("Vertical") < 0)
             {
                 Collider2D platform = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
@@ -78,8 +83,7 @@ public class PlayerController : MonoBehaviour
             
             StartCoroutine(JumpCoolDown());
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-           
-
+            
         }
     }
 
