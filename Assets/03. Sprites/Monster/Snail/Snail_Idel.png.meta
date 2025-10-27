@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6340bf09d5de5a49bda8ca9fe8f5ef4
+guid: 2bf81c14c343acd409372b4233d33c5e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,43 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpAnim_0
+      name: Snail_Idel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d74e3519a72e95418901e025ba0c423
-      internalID: -1331212562
+      spriteID: 08366b5db39909746896ed6a85477b6f
+      internalID: 1024173053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnim_1
+      name: Snail_Idel_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 42
         y: 0
-        width: 39
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f417fbb96f301f9498690db9e5a4fc25
-      internalID: -2020783674
+      spriteID: 4ce8574801523ca469693ba1b4ba541e
+      internalID: 1925113169
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpAnim_0: -1331212562
-      JumpAnim_1: -2020783674
+      Snail_Idel_0: 1024173053
+      Snail_Idel_1: 1925113169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

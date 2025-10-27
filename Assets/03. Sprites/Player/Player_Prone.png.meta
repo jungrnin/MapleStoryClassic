@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6340bf09d5de5a49bda8ca9fe8f5ef4
+guid: 248189445162eb845b544bde141c6f5c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpAnim_0
+      name: Player_Prone_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 62
+        width: 63
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d74e3519a72e95418901e025ba0c423
-      internalID: -1331212562
+      spriteID: ed56795cb13dc39499474e90450b0de8
+      internalID: 1909569140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnim_1
+      name: Player_Prone_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 63
         y: 0
-        width: 39
-        height: 62
+        width: 63
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f417fbb96f301f9498690db9e5a4fc25
-      internalID: -2020783674
+      spriteID: 9e9d672c67d836c42b7d86a0b8e760b3
+      internalID: -1632066694
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpAnim_0: -1331212562
-      JumpAnim_1: -2020783674
+      Player_Prone_0: 1909569140
+      Player_Prone_1: -1632066694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

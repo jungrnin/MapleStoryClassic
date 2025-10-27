@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6340bf09d5de5a49bda8ca9fe8f5ef4
+guid: 80578307985cd494aa584e388c5f204c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,43 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpAnim_0
+      name: Snail_Move_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d74e3519a72e95418901e025ba0c423
-      internalID: -1331212562
+      spriteID: 28e4795f3a272154ba20e5b93adb3801
+      internalID: -1214211115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpAnim_1
+      name: Snail_Move_1
       rect:
         serializedVersion: 2
         x: 39
         y: 0
-        width: 39
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f417fbb96f301f9498690db9e5a4fc25
-      internalID: -2020783674
+      spriteID: d0552bca133f66841a4f044e7367b62c
+      internalID: -950874510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snail_Move_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d55349d0c05aa4792c100bb0ed9b21
+      internalID: 1274990245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snail_Move_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ae958800bca874b81a75a39e57a17e
+      internalID: -1012921180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snail_Move_4
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 37
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1e80b20cf951843b7a9a3225fb864b
+      internalID: -1671587140
       vertices: []
       indices: 
       edges: []
@@ -162,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpAnim_0: -1331212562
-      JumpAnim_1: -2020783674
+      Snail_Move_0: -1214211115
+      Snail_Move_1: -950874510
+      Snail_Move_2: 1274990245
+      Snail_Move_3: -1012921180
+      Snail_Move_4: -1671587140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
