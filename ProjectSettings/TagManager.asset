@@ -15,7 +15,7 @@ TagManager:
   - Ladder
   - Player
   - Platform
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 562964427
+    locked: 0
+  - name: Enemy
+    uniqueID: 2912841793
+    locked: 0
+  - name: Effect
+    uniqueID: 2244285995
     locked: 0

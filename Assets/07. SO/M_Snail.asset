@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: M_Snail
   m_EditorClassIdentifier: 
   monsterName: Snail
-  sprite: {fileID: 0}
-  animatorController: {fileID: 0}
+  sprite: {fileID: 1024173053, guid: 2bf81c14c343acd409372b4233d33c5e, type: 3}
+  animatorController: {fileID: 9100000, guid: 092dbb4763162f14b9546bbab86dd76b, type: 2}
   maxHp: 5
-  moveSpeed: 1
+  moveSpeed: 0.5
   damage: 0
   leftOffset: -1.5
   rightOffset: 1.5

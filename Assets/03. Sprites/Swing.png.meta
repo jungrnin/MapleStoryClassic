@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2bf81c14c343acd409372b4233d33c5e
+guid: 698c7a27318a5454a8206166070aa55a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,43 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Snail_Idel_0
+      name: Swing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 37
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 164
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08366b5db39909746896ed6a85477b6f
-      internalID: 1024173053
+      spriteID: ab31c05fa9d440740b1945d8831b2b63
+      internalID: 486748960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snail_Idel_1
+      name: Swing_1
       rect:
         serializedVersion: 2
-        x: 42
+        x: 164
         y: 0
-        width: 37
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 164
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ce8574801523ca469693ba1b4ba541e
-      internalID: 1925113169
+      spriteID: 9bf2a158d7a2bc6489a9e854415470ab
+      internalID: 1629975732
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Snail_Idel_0: 1024173053
-      Snail_Idel_1: 1925113169
+      Swing_0: 486748960
+      Swing_1: 1629975732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

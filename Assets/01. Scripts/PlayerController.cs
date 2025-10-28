@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Move")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float jumpPower = 7f;
-    [SerializeField] private Transform attackPoint;
+    private bool isProne = false;
 
     [Header("GroundCheck")]
     public Transform groundCheck;
@@ -23,10 +23,17 @@ public class PlayerController : MonoBehaviour
 
     [Header("BasicAttack")]
     private float curTime;
+    private bool isAttack = false;
     public float coolTime = 0.5f;
     public Transform pos;
     public Vector2 boxSize;
+    [SerializeField] private GameObject attackEffectPrefab;
+    [SerializeField] private Transform effectPoint;
 
+    [Header("TakeDamage")]
+    [SerializeField] private int maxHP = 5;
+    private int nowHP;
+    private bool isDamage = false;
 
 
     private Rigidbody2D rb;
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
         rb.drag = 0f;
         originalGravity = rb.gravityScale;
         animator = GetComponent<Animator>();
+        nowHP = maxHP;
     }
 
     void Update()
@@ -59,6 +67,12 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+
+        if (isAttack || isDamage)
+        {
+            return;
+        }
+
         float inputX = Input.GetAxisRaw("Horizontal");
         float moveX = inputX * moveSpeed;
 
@@ -67,21 +81,21 @@ public class PlayerController : MonoBehaviour
         if (inputX != 0)
         {
             transform.localScale = new Vector3(inputX > 0 ? -1 : 1, 1, 1);
-            AttackPointFlip(inputX);
+
         }
         animator.SetBool("IsWalking", inputX != 0);
     }
 
-    void AttackPointFlip(float inputX)
-    {
-        if (inputX == 0) 
-        {
-            return;
-        }
-        Vector3 attackPos = attackPoint.localScale;
-        attackPos.x = Mathf.Abs(attackPos.x) * (inputX > 0 ? -1 : 1);
-        attackPoint.localScale = attackPos;
-    }
+    //void AttackPointFlip(float inputX)
+    //{
+    //    if (inputX == 0) 
+    //    {
+    //        return;
+    //    }
+    //    Vector3 attackPos = pos.localPosition;
+    //    attackPos.x = Mathf.Abs(attackPos.x) * (inputX > 0 ? -1 : 1);
+    //    pos.localPosition = attackPos;
+    //}
 
     void Jump()
     {
@@ -167,29 +181,30 @@ public class PlayerController : MonoBehaviour
 
     void Prone()
     {
-        if(Input.GetAxisRaw("Vertical") < 0 && isGrounded && !isClimbing)
+        if (Input.GetAxisRaw("Vertical") < 0 && isGrounded && !isClimbing)
         {
+            isProne = true;
             animator.SetBool("IsProne", true);
         }
         else
         {
+            isProne = false;
             animator.SetBool("IsProne", false);
         }
     }
 
     void Attack()
     {
-        if (curTime <= 0)
+
+        if (isClimbing || isProne || isAttack)
+        {
+            return;
+        }
+        if (curTime <= 0 && !isAttack)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
-                foreach (Collider2D collider in collider2D)
-                {
-                    Debug.Log(collider.tag);
-                }
-
-                animator.SetTrigger("IsAttack");
+                StartCoroutine(AttackDelay());
                 curTime = coolTime;
             }
         }
@@ -197,6 +212,29 @@ public class PlayerController : MonoBehaviour
         {
             curTime -= Time.deltaTime;
         }
+    }
+
+    public void TakeDamage(int damage, Transform monster = null)
+    {
+    
+        if (isDamage)
+        {
+            
+            return;
+        }
+
+        StartCoroutine(DamageDelay(damage, monster));
+
+
+        if (nowHP <= 0)
+        {
+            //Die();
+        }
+    }
+
+    private void Die()
+    {
+        //»ç¸Á ¸ð¼Ç, UI
     }
 
     private void OnDrawGizmosSelected()
@@ -242,5 +280,60 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, platform, false);
     }
 
+    IEnumerator AttackDelay()
+    {
+        isAttack = true;
+        rb.velocity = Vector2.zero;
+        animator.SetTrigger("IsAttack");
+        yield return new WaitForSeconds(0.3f);
+
+        if (attackEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(attackEffectPrefab, effectPoint.position, Quaternion.identity);
+
+            if(transform.localScale.x <0)
+            {
+                effect.transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+
+        
+        
+
+        Collider2D[] collider2D = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
+
+        foreach (Collider2D hit in collider2D)
+        {
+            MonsterBase monster = hit.GetComponent<MonsterBase>();
+            if(monster != null)
+            {
+                monster.TakeDamage(1, transform);
+            }
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        isAttack = false;
+    }
+
+    IEnumerator DamageDelay(int damage, Transform monster)
+    {
+        isDamage = true;
+
+        nowHP -= damage;
+
+        if (monster != null)
+        {
+            rb.velocity = Vector2.zero;
+            Vector2 dir = (transform.position - monster.position).normalized;
+            rb.AddForce(new Vector2(dir.x * 3f, 2f), ForceMode2D.Impulse);
+            
+        }
+
+        //animator.SetTrigger("IsHit");
+
+        yield return new WaitForSeconds(0.5f);
+        isDamage = false;
+    }
    
 }

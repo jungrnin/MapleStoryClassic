@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce564d609c8fca34b9b0925388f37f17, type: 3}
   m_Name: M_Slime
   m_EditorClassIdentifier: 
-  monsterName: 
+  monsterName: Slime
   sprite: {fileID: 0}
   animatorController: {fileID: 0}
   maxHp: 0
