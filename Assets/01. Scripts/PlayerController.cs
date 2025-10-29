@@ -332,7 +332,7 @@ public class PlayerController : MonoBehaviour
 
         //animator.SetTrigger("IsHit");
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         isDamage = false;
     }
    

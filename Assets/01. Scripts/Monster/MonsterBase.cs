@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum MonsterState
 { 
-    Idel,
+    Idle,
     Patrol,
     Chase,
     Knockback,
@@ -26,8 +26,14 @@ public class MonsterBase : MonoBehaviour
     private MonsterState state = MonsterState.Patrol;
 
     [SerializeField] private float chaseRange = 5f;
-    [SerializeField] private float chaseSpeed = 2.5f;
+    [SerializeField] private float chaseSpeed = 0f;
+
+    [SerializeField] private float IdleTime = 3f;
+    [SerializeField] private float IdleInterval = 3f;
+    private float patrolTimer = 0f;
+
     private Transform targetPlayer;
+    private GameManager gameManager;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,10 +54,18 @@ public class MonsterBase : MonoBehaviour
         state = MonsterState.Patrol;
     }
 
+    public void SetGameManager(GameManager gm)
+    {
+        gameManager = gm;
+    }
+
     private void Update()
     {
         switch (state)
         {
+            case MonsterState.Idle:
+                Idle();
+                break;
             case MonsterState.Patrol:
                 Patrol();
                 break;
@@ -71,6 +85,12 @@ public class MonsterBase : MonoBehaviour
 
     }
 
+    void Idle()
+    {
+        rb.velocity = Vector2.zero;
+        animator.SetBool("IsMoving", false);
+    }
+
     void Patrol()
     {
         float moveDir = moveRight ? 1 : -1;
@@ -87,6 +107,13 @@ public class MonsterBase : MonoBehaviour
         {
             moveRight = true;
             sprite.flipX = false;
+        }
+
+        patrolTimer += Time.deltaTime;
+        if(patrolTimer >= IdleInterval)
+        {
+            patrolTimer = 0;
+            StartCoroutine(IdleRoutine());
         }
     }
 
@@ -153,6 +180,12 @@ public class MonsterBase : MonoBehaviour
     IEnumerator DeathDelay()
     {
         yield return new WaitForSeconds(0.5f);
+
+        if(gameManager != null)
+        {
+            gameManager.MonsterDeath(gameObject);
+        }
+
         Destroy(gameObject);
     }
 
@@ -175,5 +208,14 @@ public class MonsterBase : MonoBehaviour
             state = MonsterState.Patrol;
         }
     }
+    IEnumerator IdleRoutine()
+    {
+        state = MonsterState.Idle;
+        yield return new WaitForSeconds(IdleTime);
+        state = MonsterState.Patrol;
+    }
 
+   
+
+    
 }

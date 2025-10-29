@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: M_Slime
   m_EditorClassIdentifier: 
   monsterName: Slime
-  sprite: {fileID: 0}
-  animatorController: {fileID: 0}
-  maxHp: 0
-  moveSpeed: 0
+  sprite: {fileID: -1572018056, guid: 24800a0abf39a1c43987b69724c3b0fa, type: 3}
+  animatorController: {fileID: 9100000, guid: 5fa4072a3336fe14c8a92263bae60313, type: 2}
+  maxHp: 7
+  moveSpeed: 0.8
   damage: 0
-  leftOffset: 0
-  rightOffset: 0
+  leftOffset: -2
+  rightOffset: 2
